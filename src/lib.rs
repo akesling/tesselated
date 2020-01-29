@@ -17,15 +17,6 @@ static HEX_DIRECTIONS: [Hex; 6] = [
     Hex{_secret: (), r: 0, q: 1, s: -1},
 ];
 
-pub enum HexDirections {
-    One = 0,
-    Two = 1,
-    Three = 2,
-    Four = 3,
-    Five = 4,
-    Six = 5,
-}
-
 impl Hex {
     pub fn new(q: i32, r: i32, s: i32) -> Option<Hex> {
         if q + r + s != 0 {
@@ -41,8 +32,8 @@ impl Hex {
         (hex_vec.q.abs() + hex_vec.r.abs() + hex_vec.s.abs()) / 2
     }
 
-    pub fn neighbor(&self, dir: HexDirections) -> Hex {
-        self + &HEX_DIRECTIONS[dir as usize]
+    pub fn neighbor(&self, dir: i32) -> Hex {
+        self + &HEX_DIRECTIONS[(dir % 6) as usize]
     }
 }
 
