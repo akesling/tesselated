@@ -1,5 +1,3 @@
-
-
 pub struct Hex {
     // Prevent independent construction so invariants are enforced.
     _secret: (),
@@ -9,12 +7,42 @@ pub struct Hex {
 }
 
 static HEX_DIRECTIONS: [Hex; 6] = [
-    Hex{_secret: (), r: 1, q: 0, s: -1},
-    Hex{_secret: (), r: 1, q: -1, s: 0},
-    Hex{_secret: (), r: 0, q: -1, s: 1},
-    Hex{_secret: (), r: -1, q: 0, s: 1},
-    Hex{_secret: (), r: -1, q: 1, s: 0},
-    Hex{_secret: (), r: 0, q: 1, s: -1},
+    Hex {
+        _secret: (),
+        r: 1,
+        q: 0,
+        s: -1,
+    },
+    Hex {
+        _secret: (),
+        r: 1,
+        q: -1,
+        s: 0,
+    },
+    Hex {
+        _secret: (),
+        r: 0,
+        q: -1,
+        s: 1,
+    },
+    Hex {
+        _secret: (),
+        r: -1,
+        q: 0,
+        s: 1,
+    },
+    Hex {
+        _secret: (),
+        r: -1,
+        q: 1,
+        s: 0,
+    },
+    Hex {
+        _secret: (),
+        r: 0,
+        q: 1,
+        s: -1,
+    },
 ];
 
 impl Hex {
@@ -23,7 +51,12 @@ impl Hex {
             return None;
         }
 
-        Some(Hex{_secret: (), q, r, s})
+        Some(Hex {
+            _secret: (),
+            q,
+            r,
+            s,
+        })
     }
 
     pub fn distance(&self, other: &Hex) -> i32 {
@@ -47,7 +80,12 @@ impl std::ops::Add<&Hex> for &Hex {
     type Output = Hex;
 
     fn add(self, other: &Hex) -> Hex {
-        Hex{_secret: (), q: self.q + other.q, r: self.r + other.r, s: self.s + other.s}
+        Hex {
+            _secret: (),
+            q: self.q + other.q,
+            r: self.r + other.r,
+            s: self.s + other.s,
+        }
     }
 }
 
@@ -55,7 +93,12 @@ impl std::ops::Sub<&Hex> for &Hex {
     type Output = Hex;
 
     fn sub(self, other: &Hex) -> Hex {
-        Hex{_secret: (), q: self.q - other.q, r: self.r - other.r, s: self.s - other.s}
+        Hex {
+            _secret: (),
+            q: self.q - other.q,
+            r: self.r - other.r,
+            s: self.s - other.s,
+        }
     }
 }
 
@@ -63,7 +106,12 @@ impl std::ops::Mul<&Hex> for &Hex {
     type Output = Hex;
 
     fn mul(self, other: &Hex) -> Hex {
-        Hex{_secret: (), q: self.q * other.q, r: self.r * other.r, s: self.s * other.s}
+        Hex {
+            _secret: (),
+            q: self.q * other.q,
+            r: self.r * other.r,
+            s: self.s * other.s,
+        }
     }
 }
 
